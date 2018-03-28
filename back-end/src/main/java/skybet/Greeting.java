@@ -1,4 +1,4 @@
-package hello;
+package skybet;
 
 public class Greeting {
 
