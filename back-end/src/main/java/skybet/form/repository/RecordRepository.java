@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.batch.item.ExecutionContext;
 import org.springframework.batch.item.file.FlatFileItemReader;
+import org.springframework.batch.item.file.FlatFileItemWriter;
 import org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper;
 import org.springframework.batch.item.file.mapping.DefaultLineMapper;
 import org.springframework.batch.item.file.transform.DelimitedLineTokenizer;
@@ -35,7 +36,7 @@ public class RecordRepository {
                 items.add(item);
             }
         } catch (Exception e) {
-            log.error("Exception happned while reading records from the file", e);
+            log.error("Exception happened while reading records from the file", e);
         } finally {
             reader.close();
         }
@@ -61,7 +62,6 @@ public class RecordRepository {
                 });
             }
         });
-
 
         return reader;
     }
