@@ -1,1 +1,14 @@
+*.sw?
+.#*
+*#
+*~
+.classpath
+.project
+.settings
+bin
+build
+target
+.gradle
+.iml
 .idea
+out
