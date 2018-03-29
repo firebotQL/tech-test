@@ -3,7 +3,7 @@ package skybet.form;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import skybet.form.domain.Record;
-import skybet.form.repository.RecordRepository;
+import skybet.form.repository.RecordRepositoryImpl;
 
 import java.util.List;
 
@@ -11,9 +11,13 @@ import java.util.List;
 public class RecordService {
 
     @Autowired
-    RecordRepository recordRepository;
+    RecordRepositoryImpl recordRepository;
 
     public List<Record> findAllRecords() {
         return recordRepository.findAll();
+    }
+
+    public void saveAllRecords(List<Record> records) {
+        recordRepository.save(records);
     }
 }
