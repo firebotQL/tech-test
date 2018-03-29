@@ -20,4 +20,8 @@ public class RecordService {
     public void saveAllRecords(List<Record> records) {
         recordRepository.save(records);
     }
+
+    public void save(Record record) {
+        recordRepository.save(record);
+    }
 }

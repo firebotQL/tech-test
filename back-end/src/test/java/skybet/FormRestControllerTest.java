@@ -27,6 +27,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import skybet.form.domain.Record;
 
 @RunWith(SpringRunner.class)
@@ -57,6 +59,13 @@ public class FormRestControllerTest {
             new Record("634780cc-ff30-029c-292e-271e52db5f70","Jim","White"),
             new Record("df41df92-b3c8-5d07-0dd0-71e776eb49e8","Natalie","Sawyer")
     };
+
+    @Before
+    public void setup() throws Exception {
+        mvc.perform(post("/record")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(gsonBuilder.toJson(defaultTestList)));
+    }
 
     @Test
     public void testIfReceivingOKandCorrectContentType() throws Exception {
@@ -81,6 +90,27 @@ public class FormRestControllerTest {
                 .andExpect(jsonPath("$", hasSize(defaultTestList.length)))
                 .andExpect(content().string(gsonBuilder.toJson(defaultTestList)));
     }
+
+    @Test
+    public void testIfRecordIsUpdated() throws Exception {
+        int rowTestNumber = 2;
+        String newTestingName = "Joshua";
+        defaultTestList[rowTestNumber].setFirstName(newTestingName);
+
+        final MockHttpServletRequestBuilder putBuilder = put("/record")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(gsonBuilder.toJson(defaultTestList[rowTestNumber]));
+
+        mvc.perform(putBuilder)
+                .andExpect(status().isOk());
+
+        mvc.perform(get("/record").accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(defaultTestList.length)))
+                .andExpect(jsonPath("$[" + rowTestNumber + "].firstName").value(equalTo(newTestingName)));
+    }
+
+
 
     private Record[] createBiggerList() {
         Record[] newList = new Record[6];

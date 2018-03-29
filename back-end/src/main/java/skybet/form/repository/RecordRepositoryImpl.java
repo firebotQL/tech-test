@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static java.util.stream.Collectors.toList;
+
 @Repository
 @Getter
 public class RecordRepositoryImpl extends FileRepository {
@@ -52,5 +54,14 @@ public class RecordRepositoryImpl extends FileRepository {
         } finally {
             writer.close();
         }
+    }
+
+    // NOTE: this is so not efficient because I have to read ENTIRE file
+    // then iterate over entire list log(n), then replace the line
+    // and then overwrite the whole file again...
+    public void save(Record record) {
+        final List<Record> records = findAll();
+        List<Record> updatedRecords = records.stream().map(e -> e.getId().equals(record.getId()) ? record  : e).collect(toList());
+        save(updatedRecords);
     }
 }

@@ -30,4 +30,10 @@ public class FormRestController {
         recordService.saveAllRecords(records);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @RequestMapping(method = RequestMethod.PUT)
+    public ResponseEntity saveRecord(@RequestBody Record record) {
+        recordService.save(record);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
