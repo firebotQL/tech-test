@@ -25,7 +25,7 @@ public class FormRestController {
         return new ResponseEntity<>(records, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/record", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<List<Record>> saveAllRecords(@RequestBody List<Record> records) {
         recordService.saveAllRecords(records);
         return new ResponseEntity<>(HttpStatus.OK);

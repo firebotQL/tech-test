@@ -30,6 +30,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-devtools")
     compile('org.springframework.batch:spring-batch-core:4.0.1.RELEASE')
     compile('org.projectlombok:lombok:1.16.20')
+    compile ('com.google.code.gson:gson:2.7')
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile('com.jayway.jsonpath:json-path')
 }
