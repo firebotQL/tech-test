@@ -14,7 +14,7 @@
 
 ## Tech choices & Reasoning
 
-For the back end, I have mainly used Java + Spring Boot technology. There are of course other multiple small libraries used behind the scenes like Lombok, GSON and etc to help with faster code development.
+For the back end, I have mainly used Java + Spring Boot technology. Of course other multiple small libraries used behind the scenes like Lombok, GSON and etc to help with faster code development.
 
 For the front end I have chosen to use Angular 2 > (5.2 to be precise) with other libraries which you can check out in [package.json](https://github.com/firebotQL/tech-test/blob/master/front-end/package.json)
  file.
