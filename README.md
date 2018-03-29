@@ -1,37 +1,24 @@
 # Sky Betting & Gaming Technical Test
 
-## Introduction
+## Requirements
 
-Welcome to the Sky Betting & Gaming Technical Test!
+ Create a server-side form handler in the language of your choice, to load and save data from our supplied HTML form.
 
-We hope that you find this exercise fun. There are no trick questions; we want to see your solution to a simple problem with well thought-out and well structured code.
+1. Functionality required:
+  * Simple UPDATE capability against the existing RECORDS.
+  * Other CRUD functions could be added if you have time.
+2. Validation:
+  * Test coverage.
+3. Datastore:
+  * Text file.
 
+## Tech choices
 
-## The Brief
+For the back end, I have mainly used Java + Spring Boot technology. There are of course other multiple small libraries used behind the scenes like Lombok, GSON and etc to help with faster code development.
 
-The aim of this exercise is to create a server-side form handler in the language of your choice, to load and save data from our supplied HTML form.
+For the front end I have chosen to use Angular 2 > (5.2 to be precise) with other libraries which you can check out in [package.json](https://github.com/firebotQL/tech-test/blob/master/front-end/package.json)
+ file.
 
-The main functionality required is a simple update capability against the existing records. Other CRUD functions could be added if you have time. In order to validate this functionality, you should include an appropriate level of test coverage.
+I could have used Node.js and Express for the backend and BackboneJS for front-end, with which I was comfortable at some point. Or any other trending tech, but because predominantly recently I was using chosen technologies at my current workplace so I bluntly decided that this would be the fastest way to develop for me at the minute.
 
-For a datastore, your application should just read from and write to a file on disk, rather than use a relational/noSQL solution.
-
-We leave it to you to decide how to transmit the data between the client and the server. Any client-side code should maintain the same principles as the server-side code.
-
-You should use engineering best practices where appropriate. Principles we value include: security, performance, readability, testability, scalability, simplicity. You should also aim to achieve a clean separation of concerns between components of your solution; using the MVC pattern, for example.
-
-## The Deliverable
-
-* A bundled/archived repository showing your commit history or a link to an accessible private repository with your work in (Github can host private repositories at a cost; there is no charge for doing so with Bitbucket). You could fork this repo in git, but any VCS is fine. Git example for sending us a standalone bundle:
-
-        git bundle create <yourname>.bundle --all --branches
-
-* A covering note explaining the technology choices you have made.
-* Any instructions required to run your solution and tests in a Linux environment.
-
-## The Markup
-
-An example of the initial HTML form is [provided in this repository](markup.html).
-
-## Assessment Policy
-
-We consider all candidates equally, fairly and without bias.  To that end, we ask that you do not leave any personally identifying information in your submission (such as your name within an author field or file, or in use as test data).  We run all VCS-based submissions through an anonymiser before assessment, so that there is no identifying information in the commit history, but this will only remove references in the committing author and email address, not deep in the code submitted.
+## How to/Usage
