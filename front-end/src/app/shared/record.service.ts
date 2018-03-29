@@ -11,6 +11,10 @@ export class RecordService {
     private http: HttpClient
   ) { }
 
+  create(id, firstName, sureName) {
+    return new Record(id, firstName, sureName);
+  }
+
   getAll() {
     return this.http.get<Record>(this.apiUrl)
       .map(response => response);
@@ -18,6 +22,10 @@ export class RecordService {
 
   saveAll(records) {
     return this.http.post<Record>(this.apiUrl, records).subscribe();
+  }
+
+  save(record) {
+    return this.http.put<Record>(this.apiUrl, record).subscribe();
   }
 
 }

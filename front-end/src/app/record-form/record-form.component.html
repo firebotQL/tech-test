@@ -8,8 +8,17 @@
       <tr *ngFor="let record of records; let i = index;">
         <td><input type="text" name="a{{record.firstName + i}}" [(ngModel)]="records[i].firstName"/></td>
         <td><input type="text" name="a{{record.sureName + i}}" [(ngModel)]="records[i].sureName"/></td>
+        <i class="fa fa-trash-o fa-1x fa-fw custom-btns" (click)="removeRecord(i)"></i>
+        <i class="fa fa-save fa-1x fa-fw custom-btns" (click)="updateRecord(i)"></i>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <i class="fa fa-user-plus fa-1x fa-fw custom-btns" (click)="addRecord()"></i>
       </tr>
     </table>
-    <input type="submit" value="OK" />
+    <button class="btn btn-primary" type="submit">
+      <i class="fa fa-floppy-o"></i> Save All
+    </button>
   </form>
 </div>
