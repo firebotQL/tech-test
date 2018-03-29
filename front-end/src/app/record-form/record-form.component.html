@@ -1,13 +1,15 @@
-<form>
-  <table>
-    <tr>
-      <th>First name</th>
-      <th>Last name</th>
-    </tr>
-    <tr *ngFor="let record of records;">
-      <td><input type="text" name="people[][firstname]" value="{{record.firstName}}" /></td>
-      <td><input type="text" name="people[][surname]" value="{{record.sureName}}" /></td>
-    </tr>
-  </table>
-  <input type="submit" value="OK" />
-</form>
+<div class="container">
+  <form (ngSubmit)="onSubmit()">
+    <table>
+      <tr>
+        <th>First name</th>
+        <th>Last name</th>
+      </tr>
+      <tr *ngFor="let record of records; let i = index;">
+        <td><input type="text" name="a{{record.firstName + i}}" [(ngModel)]="records[i].firstName"/></td>
+        <td><input type="text" name="a{{record.sureName + i}}" [(ngModel)]="records[i].sureName"/></td>
+      </tr>
+    </table>
+    <input type="submit" value="OK" />
+  </form>
+</div>

@@ -23,4 +23,12 @@ export class RecordFormComponent implements OnInit {
   loadRecords() {
     this.recordService.getAll().subscribe(data => this.records = data);
   }
+
+  postRecords() {
+    this.recordService.saveAll(this.records);
+  }
+
+  onSubmit() {
+    this.postRecords();
+  }
 }
