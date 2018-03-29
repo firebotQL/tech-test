@@ -21,16 +21,19 @@ For the front end I have chosen to use Angular 2 > (5.2 to be precise) with othe
 
 I could have used Node.js and Express for the backend and BackboneJS for front-end, with which I was comfortable at some point. Or any other trending tech, but because predominantly recently I was using chosen technologies at my current workplace so I bluntly decided that this would be the fastest way to develop for me at the minute.
 
+I have also tried to follow all the principles you have mentioned such as: security, performance, readability, testability, scalability, simplicity
+I can comment on all above on demand.
+
 ## How to/Usage
 
 Make sure you are in the root of the repository in your terminal.
 
-In first terminal back-end directory run:
+From the terminal being in 'back-end' directory run:
 ```sh
 ./gradlew bootRun
 ```
 
-In second terminal run front-end:
+From the terminal being in 'front-end' directory run:
 ```sh
 npm install -g @angular/cli && npm install && ng serve --open
 ```
