@@ -5,14 +5,14 @@
  Create a server-side form handler in the language of your choice, to load and save data from our supplied HTML form.
 
 1. Functionality required:
-  * Simple UPDATE capability against the existing RECORDS.
-  * Other CRUD functions could be added if you have time.
+    * Simple UPDATE capability against the existing RECORDS.
+    * Other CRUD functions could be added if you have time.
 2. Validation:
-  * Test coverage.
+    * Test coverage.
 3. Datastore:
-  * Text file.
+    * Text file.
 
-## Tech choices
+## Tech choices & Reasoning
 
 For the back end, I have mainly used Java + Spring Boot technology. There are of course other multiple small libraries used behind the scenes like Lombok, GSON and etc to help with faster code development.
 
